@@ -25,12 +25,7 @@ export const routes: Routes = [
                 path: 'formulario',
                 loadChildren: () =>
                     import('./form/form.module').then((m) => m.FormModule),
-            },
-            {
-                path: '**',
-                loadChildren: () =>
-                    import('./home/home.module').then((m) => m.HomeModule),
-            },
+            }            
         ],
     },
 ];
