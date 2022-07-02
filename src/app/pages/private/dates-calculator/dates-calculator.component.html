@@ -1,1 +1,57 @@
-<p>dates-calculator works!</p>
+<div class="container-main">
+  <div class="container-title">
+    <h1>Calculadora de Fechas</h1>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-6">
+        <ng-container class="container-fluid" [formGroup]="dateForm">
+          <div class="row">
+            <div class="col-12 py-2">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Selecciona una fecha</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="date" appValidationForm>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="col-12 py-2">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Selecciona unidad (día/mes/año)</mat-label>
+                <mat-select formControlName="unit">
+                  <mat-option *ngFor="let item of ranges" [value]="item.value">
+                    {{item.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-12 py-2">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Número</mat-label>
+                <input matInput formControlName="quantity" placeholder="Unidades enteras" value="" type="number">
+              </mat-form-field>
+            </div>
+            <div class="col-12 pt-4">
+              <button mat-raised-button color="accent" [disabled]="!dateForm.valid" (click)="calculateDate()">
+                CALCULAR
+              </button>
+            </div>
+            <div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div class="d-flex flex-column col-6">
+        <div>
+          <h3>Fecha inicial:</h3>
+          <span>{{dateForm.value.date | date :  'dd / MM / yyyy'}}</span>
+        </div>
+        <div class="pt-4">
+          <h3>Resultado:</h3>
+          <span>{{dateFinal | date :  'dd / MM / yyyy'}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

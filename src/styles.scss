@@ -35,3 +35,16 @@ body {
     background-position: 0% 50%;
   }
 }
+
+h1{
+  font-size: 60px;
+}
+
+.container-main{
+  height: calc(100vh - 100px);
+  padding-top: 100px;
+  .container-title{
+    padding: 30px;
+  }
+}
+
