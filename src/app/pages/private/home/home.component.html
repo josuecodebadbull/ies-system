@@ -3,8 +3,8 @@
     <div class="col-12 col-md-6 col-lg-4 d-flex flex-column justify-content-center">
       <h1 class="text-center">Bienvenido a mi portal</h1>
       <p class="text-center">Nos podrías indicar tu nombre.</p>
-      <button mat-stroked-button color="primary" (click)="openModal()">Escribe tu nombre</button>
-      <h1 class="text-center">{{ name | cambioLetras}}</h1>
+      <button mat-raised-button color="accent" (click)="openModal()">Escribe tu nombre</button>
+      <h1 *ngIf="name" class="text-center pt-4">{{ name | cambioLetras}}</h1>
     </div>
   </div>
 </div>
