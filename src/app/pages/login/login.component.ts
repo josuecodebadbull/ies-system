@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
+import { SessionToken } from 'src/app/config/session/sessionToken';
 import { AuthService } from './services/auth.service';
 
 @Component({
@@ -33,6 +34,10 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  private setSession(session: any) {
+    SessionToken.setToken(session);
+  }
+
 
   login() {
     const { loginForm, UnSuscribe, authService } = this;
@@ -47,8 +52,10 @@ export class LoginComponent implements OnInit {
         .subscribe(
           {
             //TODO respuesta correcta de acceso
-            next(x) {
+            next(x: any) {
               loginForm.reset();
+              const { exito, mensaje } = x;
+              that.setSession({ exito, mensaje })
               that.navegateToDasboard();
             },
             error(err) {

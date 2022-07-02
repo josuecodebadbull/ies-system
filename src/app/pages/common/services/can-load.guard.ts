@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { SessionToken } from 'src/app/config/session/sessionToken';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,10 @@ export class CanLoadGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       //TODO validación de sesión valida
-    const validSession = true;
-    if (!validSession) {
+    const validSession = SessionToken.getToken();
+    console.log(validSession);
+    
+    if (Object.keys(validSession).length === 0) {
       this.redireToLogin();
       return false;
     }

@@ -2,5 +2,14 @@
     .card{
         padding: 70px 30px 50px;
         min-height: 361px;
+        background-color: rgba($color: #fff, $alpha: 0.8);
     }
 }
+
+.back--img {
+    background: url('../../../assets/images/belinda-fewings.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }

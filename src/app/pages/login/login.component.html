@@ -1,9 +1,10 @@
-<div class="container-fluid gradient-background">
+<div class="container-fluid back--img gradient-background">
   <div class="row d-flex justify-content-center d-flex align-items-center vh-100">
     <div class="col-12 col-md-6 col-lg-4">
       <ng-container class="container" [formGroup]="loginForm">
         <div class="row card">
           <div class="col-12">
+            <h2 class="text-rockstart pb-4">LOGIN</h2>
             <mat-form-field class="w-100">
               <mat-label>Usuario</mat-label>
               <input matInput formControlName="username" appValidationForm />
@@ -19,7 +20,7 @@
             <mat-progress-bar mode="indeterminate"></mat-progress-bar>
           </div>
           <div *ngIf="!loading" class="d-flex justify-content-center col-12 pt-4">
-            <button mat-raised-button color="primary" class="button__primary" [disabled]="!loginForm.valid"
+            <button mat-raised-button color="primary" class="button__primary btn--ies" [disabled]="!loginForm.valid"
               (click)="login()">
               Ingresar
             </button>

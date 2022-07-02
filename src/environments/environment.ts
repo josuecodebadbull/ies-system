@@ -7,7 +7,7 @@ import { ENDPOINTS } from "./endpoints";
 export const environment = {
   production: false,
   url: 'https://desa.ies-webcontent.com.mx/',
-  urlCatalog: 'http://201.131.20.125/BienesRaicesApi/api/services/app/Catalogo/EstadoCivil',
+  urlCatalog: 'https://201.131.20.125/BienesRaicesApi/api/services/app/Catalogo/EstadoCivil',
   endpoint: ENDPOINTS,
 };
 
