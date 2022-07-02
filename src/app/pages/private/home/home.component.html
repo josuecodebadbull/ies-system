@@ -1,8 +1,8 @@
-<div class="container-fluid gradient-background">
+<div class="container-fluid back--img">
   <div class="row d-flex justify-content-center d-flex align-items-center vh-100">
     <div class="col-12 col-md-6 col-lg-4 d-flex flex-column justify-content-center">
-      <h1 class="text-center">Bienvenido a mi portal</h1>
-      <p class="text-center">Nos podrías indicar tu nombre.</p>
+      <h1 class="text-center text-white text-rockstart">Bienvenido a mi portal</h1>
+      <p class="text-center text-white">Nos podrías indicar tu nombre.</p>
       <button mat-raised-button color="accent" (click)="openModal()">Escribe tu nombre</button>
       <h1 *ngIf="name" class="text-center pt-4">{{ name | cambioLetras}}</h1>
     </div>

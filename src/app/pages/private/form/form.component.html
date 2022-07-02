@@ -1,1 +1,71 @@
-<p>form works!</p>
+<div class="container-main">
+  <div class="container-title">
+    <h1>Formulario Reactivo</h1>
+  </div>
+  <div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+      <div class="col-12 col-lg-5">
+        <ng-container class="container-fluid" [formGroup]="form">
+          <div class="row">
+            <div class="col-12 py-3">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Nombres</mat-label>
+                <input matInput formControlName="nombres">
+                <mat-error>Incorrecto</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-12 py-2">
+              <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Apellidos</mat-label>
+                <input matInput formControlName="apellidos" value="" type="string">
+                <mat-error>Incorrecto</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-12 py-3">
+              <mat-checkbox class="w-100" formControlName="fumas">Fuma</mat-checkbox>
+            </div>
+            <div class="col-12 py-3">
+              <mat-checkbox class="w-100" formControlName="actualmentePracticasLectura">¿Actualmente practicas lectura?
+              </mat-checkbox>
+            </div>
+            <div *ngIf="form.value.actualmentePracticasLectura" class="d-flex flex-row pt-4">
+              <mat-form-field appearance="fill" class="w-75">
+                <mat-label>Modulo para agregar libros</mat-label>
+                <input matInput formControlName="nombreLibro" value="" type="string">
+              </mat-form-field>
+              <div class="d-flex pt-2 ps-3">
+                <button (click)="addBook()" mat-mini-fab color="accent"
+                  aria-label="Example icon button with a home icon">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+            </div>
+            <div *ngIf="form.value.actualmentePracticasLectura" class="col-12">
+              <h5>Lisa de Libros:</h5>
+              <ul>
+                <li *ngFor="let item of books">
+                  {{item}}
+                </li>
+              </ul>
+            </div>
+            <div class="col-12 py-3">
+              <mat-form-field appearance="fill" class="w-100">
+                <mat-label>Estado civil</mat-label>
+                <mat-select formControlName="estadoCivil">
+                  <mat-option *ngFor="let item of maritalCatalog" [value]="item.value">
+                    {{item.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-12 pt-4">
+              <button mat-raised-button color="accent" (click)="checkForm()">
+                Enviar
+              </button>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
