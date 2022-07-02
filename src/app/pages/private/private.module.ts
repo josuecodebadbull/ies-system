@@ -8,7 +8,7 @@ import { routes } from './private-routes';
 
 @NgModule({
   declarations: [
-    PrivateComponent
+    PrivateComponent,
   ],
   imports: [
     CommonModule,
